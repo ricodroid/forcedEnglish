@@ -1,0 +1,68 @@
+# macOS システムファイル
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode
+build/
+DerivedData/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xcscmblueprint
+
+# Swift Package Manager
+/.swiftpm
+/.build
+
+# Cocoapods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+
+# Firebase
+GoogleService-Info.plist
+
+# Env files
+.env
+.env.local
+.env.development
+.env.production
+
+# Temporary files
+*.swp
+*.swo
+*.tmp
+*.log
+*.lock
+
+# Xcode Archive
+*.xcarchive
+
+# SwiftPM build artifacts
+.swiftpm/xcode/
+.xcodeproj/project.xcworkspace/
+.xcworkspacedata
+
+# Ignore secrets
+*.key
+*.pem
+*.crt
+*.p12
+*.mobileprovision
+*.xcconfig
+
