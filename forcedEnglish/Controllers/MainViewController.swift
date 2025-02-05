@@ -26,7 +26,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate {
     }
     
     @objc func sendNotification() {
-        NotificationManager.shared.scheduleRandomVocabularyNotification()
+        NotificationManager.shared.scheduleRandomVocabularyNotification(after: 10) // 10秒後に通知
     }
     
     // 通知をタップした際の処理

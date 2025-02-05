@@ -1,20 +1,12 @@
-//
-//  Vocabulary.swift
-//  forcedEnglish
-//
-//  Created by riko on 2025/02/03.
-//
-
 import Foundation
 
 struct Vocabulary: Identifiable, Codable {
-    let id: UUID  // `UUID()` ではなく、外部からデコード可能にする
+    let id: Int
     let word: String
     let meaning: String
-    var accuracy: Int  // 正答率
+    var accuracy: Int
 
-    // JSONデコード時にIDを自動生成するカスタムイニシャライザ
-    init(id: UUID = UUID(), word: String, meaning: String, accuracy: Int) {
+    init(id: Int, word: String, meaning: String, accuracy: Int = 0) {
         self.id = id
         self.word = word
         self.meaning = meaning
@@ -22,7 +14,7 @@ struct Vocabulary: Identifiable, Codable {
     }
 }
 
-
+// ✅ JSON の構造と一致させる
 struct VocabularyList: Codable {
     var vocabulary: [Vocabulary]
 }

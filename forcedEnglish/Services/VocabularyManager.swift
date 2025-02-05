@@ -16,21 +16,29 @@ class VocabularyManager {
 
     /// JSONファイルから単語リストを読み込む
     func loadVocabularyFromJSON() {
-        guard let url = Bundle.main.url(forResource: "vocabulary", withExtension: "json") else {
+        if let url = Bundle.main.url(forResource: "vocabulary", withExtension: "json") {
+            print("✅ JSONファイルのURL: \(url)")
+        } else {
             print("❌ JSONファイルが見つかりません")
             return
         }
 
+        guard let url = Bundle.main.url(forResource: "vocabulary", withExtension: "json"),
+              let data = try? Data(contentsOf: url) else {
+            print("❌ JSONファイルを読み込めません")
+            return
+        }
+
         do {
-            let data = try Data(contentsOf: url)
             let decodedData = try JSONDecoder().decode(VocabularyList.self, from: data)
             vocabularyList = decodedData.vocabulary
             print("✅ Vocabulary JSONをロードしました（単語数: \(vocabularyList.count)）")
         } catch {
             print("❌ JSONデコードエラー: \(error.localizedDescription)")
-            vocabularyList = []
+            print("📌 読み込んだデータ: \(String(data: data, encoding: .utf8) ?? "データが空です")")
         }
     }
+
 
     /// 全単語リストを取得
     func getVocabulary() -> [Vocabulary] {
